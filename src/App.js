@@ -1,29 +1,46 @@
-import React, { useState } from "react";
+import React, { Component } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0);
+class App extends Component {
+  constructor(props) {
+    super(props);
+    // Initialize the state with a count of 0
+    this.state = {
+      count: 0,
+    };
+  }
 
-  const handleIncrement = () => {
-    setCount(count + 1);
+  // Method to increment the count
+  increment = () => {
+    this.setState((prevState) => ({
+      count: prevState.count + 1,
+    }));
   };
 
-  const handleDecrement = () => {
-    setCount(count - 1);
+  // Method to decrement the count
+  decrement = () => {
+    this.setState((prevState) => ({
+      count: prevState.count - 1,
+    }));
   };
 
-  return (
-    <div className="App">
-      <h1>Counter App</h1>
-      <p>Count: {count}</p>
-      <div className="buttons">
-        <button type="submit" onClick={handleIncrement}>
-          Increment
-        </button>
-        <button type="submit" onClick={handleDecrement}>
-          Decrement
-        </button>
+  // Method to reset the count
+  reset = () => {
+    this.setState({
+      count: 0,
+    });
+  };
+
+  render() {
+    return (
+      <div className="counter">
+        <h1>Counter App</h1>
+        <h2>{this.state.count}</h2>
+        <button onClick={this.increment}>Increment</button>
+        <button onClick={this.decrement}>Decrement</button>
+        <button onClick={this.reset}>Reset</button>
       </div>
-    </div>
-  );
+    );
+  }
 }
+
 export default App;
