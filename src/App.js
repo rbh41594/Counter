@@ -3,27 +3,23 @@ import React, { Component } from 'react';
 class App extends Component {
   constructor(props) {
     super(props);
-    // Initialize the state with a count of 0
     this.state = {
       count: 0,
     };
   }
-
-  // Method to increment the count
+  
   increment = () => {
     this.setState((prevState) => ({
       count: prevState.count + 1,
     }));
   };
 
-  // Method to decrement the count
   decrement = () => {
     this.setState((prevState) => ({
       count: prevState.count - 1,
     }));
   };
 
-  // Method to reset the count
   reset = () => {
     this.setState({
       count: 0,
